@@ -96,7 +96,7 @@ por lo que reproduce el mismo entorno en **Windows, Linux y macOS**.
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/<tu-usuario>/qlora-domain-adaptation-qwen.git
+git clone https://github.com/DiegoAlejandroLozano/qlora-domain-adaptation-qwen.git
 cd qlora-domain-adaptation-qwen
 
 # 2. Crear el entorno de Conda a partir del archivo environment.yml
