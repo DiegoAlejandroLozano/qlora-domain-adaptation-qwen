@@ -1,0 +1,130 @@
+# ---------------------------------------------------------------------------
+# Artefactos del pipeline (regenerables)
+# ---------------------------------------------------------------------------
+# Se versionan únicamente el documento fuente (00_documentos/) y los scripts.
+# Todo lo que producen los pasos 1, 2 y 4 se puede reconstruir ejecutándolos
+# de nuevo, y los pesos del adaptador superan los 130 MB.
+
+# Paso 1 y 2: datasets generados a partir de 00_documentos/01_documento.md
+01_datos_procesados/*.jsonl
+
+# Paso 4: adaptador LoRA entrenado, tokenizer y checkpoints (~138 MB)
+02_modelos_entrenadatos/
+
+# Conservar la estructura de directorios vacíos
+!.gitkeep
+
+# ---------------------------------------------------------------------------
+# Pesos y checkpoints de modelos (por si se guardan fuera de las rutas previas)
+# ---------------------------------------------------------------------------
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+checkpoint-*/
+
+# ---------------------------------------------------------------------------
+# Cachés de Hugging Face y registros de entrenamiento
+# ---------------------------------------------------------------------------
+.cache/
+hf_cache/
+wandb/
+runs/
+logs/
+*.log
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+*.manifest
+*.spec
+
+# Pruebas y cobertura
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.hypothesis/
+
+# Herramientas de análisis estático
+.mypy_cache/
+.dmypy.json
+.ruff_cache/
+.pytype/
+
+# ---------------------------------------------------------------------------
+# Entornos virtuales
+# ---------------------------------------------------------------------------
+# El entorno se crea con: conda env create -f environment.yml
+.venv/
+venv/
+env/
+ENV/
+envs/
+.conda/
+conda-meta/
+
+# ---------------------------------------------------------------------------
+# Secretos y configuración local
+# ---------------------------------------------------------------------------
+# El manual exige inyectar credenciales (OpenAI, Pinecone, Neo4j) vía .env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.yaml
+
+# ---------------------------------------------------------------------------
+# Editores e IDEs
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.spyproject/
+.spyderproject/
+.ropeproject/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ---------------------------------------------------------------------------
+# Archivos del sistema operativo
+# ---------------------------------------------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+.fuse_hidden*
+.Trash-*
+.nfs*
+02_modelos_entrenadatos/

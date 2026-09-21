@@ -1,0 +1,29 @@
+name: LLMs_local_env
+
+channels:
+  - defaults
+
+dependencies:
+  # Intérprete y gestor de paquetes (sin build string: portable entre SO)
+  - python=3.10
+  - pip
+
+  - pip:
+      # --- Núcleo de deep learning ---
+      # Nota: esta es la build de PyPI (CPU en Windows/macOS, CUDA 12.4 en Linux).
+      # Para GPU NVIDIA en Windows, reinstala la build CUDA tras crear el entorno:
+      #   pip install torch==2.5.1 --index-url https://download.pytorch.org/whl/cu121
+      - torch==2.5.1
+
+      # --- Stack de Hugging Face ---
+      - transformers==5.17.0
+      - datasets==5.0.1
+      - accelerate==1.15.0
+
+      # --- Ajuste fino con QLoRA ---
+      - peft==0.21.0
+      - trl==1.13.0
+      - bitsandbytes==0.50.2   # Cuantización 4-bit; requiere GPU NVIDIA en tiempo de ejecución
+
+      # --- Cálculo numérico ---
+      - numpy==2.2.6
